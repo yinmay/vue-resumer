@@ -1,6 +1,7 @@
 # vue-resumer
 
 > A Vue.js project
+### initialize
 * npm init -y
 * npm i -g vue-cli
 * vue init webpack .(当前目录)
@@ -10,7 +11,16 @@
 * npm i -D sass-loader node-sass(用sass，不需要配置webpack)
 
 
+### import element UI
+* `npm i element-ui -S`
+```
+//eleme ui
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 
+Vue.use(ElementUI);
+
+```
 
 ### topbar
 

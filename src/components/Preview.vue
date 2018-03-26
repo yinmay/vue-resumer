@@ -1,6 +1,6 @@
 <template>
   <div id="preview">
-   topbar
+   preview
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style >
 #preview{
-  border:1px solid red;
   min-height:100px
+
 }
 </style>

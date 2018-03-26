@@ -36,18 +36,42 @@ export default {
   flex-direction: column ;
 
 }
+.icon {
+       width: 1em; height: 1em;
+       vertical-align: -0.15em;
+       fill: currentColor;
+       overflow: hidden;
+}
+
 .topbar{
-  // background: red
+  box-shadow: 0 0 3px hsla(0,0,0,.5);
+  position: relative;
+  z-index: 1;
 }
 main{
-  // background: green;
+  background: #ddd;
   display: flex;
   flex:1;
   >.editor{
-    width:20em
+    width:30em;
+    margin:16px 8px 16px 16px;
+    background: white;
+    box-shadow: 0 0 3px hsla(0,0,0,.5);
+    border-radius: 2px;
+    overflow:hidden;
+
   }
   >.preview{
-    flex:1
+    flex:1;
+    margin:16px 8px 16px 16px;
+    background: white;
+    box-shadow: 0 0 3px hsla(0,0,0,.5);
+    border-radius: 2px;
+    overflow:hidden;
+
+
+
+
   }
 }
 </style>
