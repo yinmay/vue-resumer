@@ -1,21 +1,35 @@
 # vue-resumer
 
 > A Vue.js project
+* npm init -y
+* npm i -g vue-cli
+* vue init webpack .(当前目录)
+* npm i
+* npm run dev
 
-## Build Setup
+* npm i -D sass-loader node-sass(用sass，不需要配置webpack)
 
-``` bash
-# install dependencies
-npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
 
-# build for production with minification
-npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
+### topbar
+
+### 简历编辑
+
+### 预览 
+
+### 简历保存
+
+* 全局注册:在new vue之前注册，不需要import,少用全局
+```
+Vue.component('Jack',{
+    template:'<p>{{name}}</p>',
+    data(){
+        return{
+            name:'Jack'
+        }
+    }
+})
+
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
