@@ -13,43 +13,11 @@
      </ol>
    </nav>
    <ol class="panes">
-     <!-- <li v-for="i in [0,1,2,3,4,5]" 
-         v-bind:class="{active:currentTab === i}">
-         tab {{i+1}}
-     </li> -->
      <li v-bind:class="{active:currentTab === 0}">
-       <h2>个人信息</h2>
-       <el-form >
-        <el-form-item label="姓名">
-          <el-input v-model="profile.name"></el-input>
-        </el-form-item>
-        <el-form-item label="出生年月">
-          <el-input v-model="profile.birth"></el-input>
-        </el-form-item>
-        <el-form-item label="城市">
-          <el-input v-model="profile.city"></el-input>
-        </el-form-item>
-       </el-form>
-
+      <Profile v-bind:profile="profile"/>
      </li>
      <li v-bind:class="{active:currentTab === 1}">
-       <h2>工作经历</h2>
-       <el-form >
-        <div class="container" v-for="(work,index) in workHistory">
-          <el-form-item label="公司">
-            <el-input v-model="work.company"></el-input>
-          </el-form-item>
-          <el-form-item label="工作内容">
-            <el-input v-model="work.content"></el-input>
-          </el-form-item>
-          <el-form-item label="工作时间">
-            <el-input v-model="work.time"></el-input>
-          </el-form-item>
-          <i class="el-icon-circle-close" v-on:click="removeWorkHistory(index)"></i>
-          <hr>
-        </div>
-        <el-button type="primary" v-on:click="addWorkHistory">默认按钮</el-button>
-       </el-form>
+       <WorkHistory v-bind:workHistory="workHistory"/>
      </li>
      <li v-bind:class="{active:currentTab === 2}">
         <h2>学习经历</h2>
@@ -69,7 +37,13 @@
 </template>
 
 <script>
+import Profile from './Profile'
+import WorkHistory from './WorkHistroy'
 export default {
+  components:{
+    Profile,
+    WorkHistory,
+  },
   data(){
     return{
       currentTab:0,
@@ -87,14 +61,7 @@ export default {
     }
   },
   methods:{
-    addWorkHistory(){
-      this.workHistory.push({
-        company:'',content:'',time:''
-      })
-    },
-    removeWorkHistory(index){
-      this.workHistory.splice(index,1)
-    }
+
   },
 
   //组件创建之后的回调
