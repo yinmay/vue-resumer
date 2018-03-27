@@ -83,7 +83,7 @@ export default {
   min-height:100px;
   display: flex;
   nav{
-    background:#000;
+    background:#3F8BFA;
     width: 80px;
     ol{      
       li{
@@ -97,7 +97,7 @@ export default {
         &.active{
           background: white;
           .icon{
-          fill:black;
+          fill:#3F8BFA;
           }
         }
       }

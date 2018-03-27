@@ -72,6 +72,8 @@ export default {
   height:100vh;
   display: flex;
   flex-direction: column ;
+  color:#333;
+  
 
 }
 .icon {

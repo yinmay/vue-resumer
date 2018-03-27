@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="editor-item">
      <h2> {{title}}</h2>
        <el-form >
         <div class="container" v-for="(item,index) in items" v-bind:key="index">
@@ -33,3 +33,9 @@ export default {
   }
 }
 </script>
+<style>
+.el-icon-circle-close{
+  color:#3F8BFA
+}
+</style>
+
