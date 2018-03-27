@@ -3,8 +3,8 @@
     <!-- <img src="./assets/logo.png"> -->
     <Topbar class="topbar"/>
     <main>
-      <Editor class="editor"/>
-      <Preview class="preview"/>
+      <Editor class="editor" v-bind:resume="resume"/>
+      <Preview class="preview" v-bind:resume="resume"/>
     </main>
   </div>
 </template>
@@ -16,6 +16,31 @@ import Editor from './components/Editor'
 
 
 export default {
+  data(){
+    return{
+      resume:{
+        profile:{
+                name:'',
+                birth:'',
+                city:'',
+            },
+            contact:{
+                cellphone:'',
+                email:'',
+                wechat:'',
+            },
+            workHistory:[
+              {company:'',content:'',time:''}
+            ],
+            stydyHistory:[
+              {school:'',duration:'',major:''}
+            ],
+            projectHistory:[
+              {title:'',content:''}
+            ] 
+      }
+    }
+  },
   name: 'App',
   components: {
     Topbar,
@@ -67,7 +92,7 @@ main{
     background: white;
     box-shadow: 0 0 3px hsla(0,0,0,.5);
     border-radius: 2px;
-    overflow:hidden;
+    overflow:auto;
 
 
 

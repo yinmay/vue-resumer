@@ -14,28 +14,28 @@
    </nav>
    <ol class="panes">
      <li v-bind:class="{active:currentTab === 0}">
-      <Profile v-bind:profile="profile"/>
+      <Profile v-bind:profile="resume.profile"/>
      </li>
      <li v-bind:class="{active:currentTab === 1}">
     
-       <ItemsEditor v-bind:items="workHistory" 
+       <ItemsEditor v-bind:items="resume.workHistory" 
          v-bind:title="'工作经历'"
         v-bind:labels="{company:'单位',content:'工作内容',time:'时间'}"/>
      </li>
      <li v-bind:class="{active:currentTab === 2}">
       
-       <ItemsEditor v-bind:items="stydyHistory" 
+       <ItemsEditor v-bind:items="resume.stydyHistory" 
          v-bind:title="'学习经历'"
         v-bind:labels="{school:'学校', duration:'时间', major:'专业'}"/>
 
      </li>
      <li v-bind:class="{active:currentTab === 3}">
-      <ItemsEditor v-bind:items="projectHistory" 
+      <ItemsEditor v-bind:items="resume.projectHistory" 
       title="项目经历"
         v-bind:labels="{title:'项目名称',content:'项目简介'}"/>
      </li>
      <li v-bind:class="{active:currentTab === 4}">
-        <Contact v-bind:contact="contact"/>
+        <Contact v-bind:contact="resume.contact"/>
      </li>
 
 
@@ -53,31 +53,14 @@ export default {
     ItemsEditor,
     Contact,
   },
+  props:['resume'],
   data(){
     return{
       currentTab:0,
       icons:[ 
         'shenfen','work0','iceducation','xiangmu','phone'
       ],
-      profile:{
-          name:'',
-          birth:'',
-          city:'',
-      },
-      contact:{
-          cellphone:'',
-          email:'',
-          wechat:'',
-      },
-      workHistory:[
-        {company:'',content:'',time:''}
-      ],
-      stydyHistory:[
-        {school:'',duration:'',major:''}
-      ],
-      projectHistory:[
-        {title:'',content:''}
-      ] 
+      
     }
   },
   methods:{
