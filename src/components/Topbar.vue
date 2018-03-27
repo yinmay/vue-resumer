@@ -6,16 +6,19 @@
    <div class="actions">
      <el-button type="primary">注册</el-button>
      <el-button >登录</el-button>
+     <el-button v-on:click="preview">预览</el-button>
    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Topbar',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+  // name: 'Topbar',
+
+  methods:{
+    preview(){
+      // alert(1)
+      this.$emit('preview')
     }
   }
 }
@@ -24,7 +27,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 #topbar{
-  min-height:100px;
+  min-height:80px;
   display:flex;
   justify-content: space-between;
   align-items: center;
