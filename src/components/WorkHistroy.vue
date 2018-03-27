@@ -2,34 +2,36 @@
   <div>
       <h2>工作经历</h2>
        <el-form >
-        <div class="container" v-for="(work,index) in workHistory">
+        <div class="container" v-for="(item,index) in items">
           <el-form-item label="公司">
-            <el-input v-model="work.company"></el-input>
+            <el-input v-model="item.company"></el-input>
           </el-form-item>
           <el-form-item label="工作内容">
-            <el-input v-model="work.content"></el-input>
+            <el-input v-model="item.content"></el-input>
           </el-form-item>
           <el-form-item label="工作时间">
-            <el-input v-model="work.time"></el-input>
+            <el-input v-model="item.time"></el-input>
           </el-form-item>
-          <i class="el-icon-circle-close" v-on:click="removeWorkHistory(index)"></i>
+          <i class="el-icon-circle-close" v-on:click="removeItem(index)"></i>
           <hr>
         </div>
-        <el-button type="primary" v-on:click="addWorkHistory">添加工作经历</el-button>
+        <el-button type="primary" v-on:click="addItem">添加工作经历</el-button>
        </el-form>
   </div>
 </template>
 <script>
 export default {
-  props:['workHistory'],
+  props:['items'],
   methods:{
-    addWorkHistory(){
-      this.workHistory.push({
-        company:'',content:'',time:''
-      })
+    addItem(){
+        const empty={}
+        this.keys().map((key)=>{
+            empty[key] = ''
+        })
+      this.items.push(empty)
     },
-    removeWorkHistory(index){
-      this.workHistory.splice(index,1)
+    removeItem(index){
+      this.items.splice(index,1)
     }
   }
 }

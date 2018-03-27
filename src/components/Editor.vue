@@ -3,7 +3,7 @@
   <div id="editor">
    <nav>
      <ol>
-       <li v-for="i in [0,1,2,3,4,5]"
+       <li v-for="i in [0,1,2,3,4]"
        v-bind:class="{active:currentTab === i}"
        v-on:click="currentTab = i">
             <svg class="icon" >
@@ -17,20 +17,27 @@
       <Profile v-bind:profile="profile"/>
      </li>
      <li v-bind:class="{active:currentTab === 1}">
-       <WorkHistory v-bind:workHistory="workHistory"/>
+    
+       <ItemsEditor v-bind:items="workHistory" 
+         v-bind:title="'工作经历'"
+        v-bind:labels="{company:'单位',content:'工作内容',time:'时间'}"/>
      </li>
      <li v-bind:class="{active:currentTab === 2}">
-        <h2>学习经历</h2>
+      
+       <ItemsEditor v-bind:items="stydyHistory" 
+         v-bind:title="'学习经历'"
+        v-bind:labels="{school:'学校', duration:'时间', major:'专业'}"/>
+
      </li>
      <li v-bind:class="{active:currentTab === 3}">
-        <h2>项目经历</h2>
+      <ItemsEditor v-bind:items="projectHistory" 
+      title="项目经历"
+        v-bind:labels="{title:'项目名称',content:'项目简介'}"/>
      </li>
      <li v-bind:class="{active:currentTab === 4}">
-        <h2>联系方式</h2>
+        <Contact v-bind:contact="contact"/>
      </li>
-     <li v-bind:class="{active:currentTab === 5}">
-       <h2>获奖经历</h2>
-     </li>
+
 
    </ol>
   </div>
@@ -38,26 +45,39 @@
 
 <script>
 import Profile from './Profile'
-import WorkHistory from './WorkHistroy'
+import ItemsEditor from './ItemsEditor'
+import Contact from './Contact'
 export default {
   components:{
     Profile,
-    WorkHistory,
+    ItemsEditor,
+    Contact,
   },
   data(){
     return{
       currentTab:0,
       icons:[ 
-        'shenfen','work0','iceducation','xiangmu','phone','icon--'
+        'shenfen','work0','iceducation','xiangmu','phone'
       ],
       profile:{
           name:'',
           birth:'',
           city:'',
       },
+      contact:{
+          cellphone:'',
+          email:'',
+          wechat:'',
+      },
       workHistory:[
         {company:'',content:'',time:''}
-      ]  
+      ],
+      stydyHistory:[
+        {school:'',duration:'',major:''}
+      ],
+      projectHistory:[
+        {title:'',content:''}
+      ] 
     }
   },
   methods:{
